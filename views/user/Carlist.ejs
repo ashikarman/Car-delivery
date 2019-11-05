@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Car List</title>
+</head>
+<body>
+	<h1>Car List</h1>
+
+	<a href="/home">Back</a> |
+	<a href="/logout">logout</a>
+
+<br><br>
+	<table border="1">
+		<tr>
+			<td>ID</td>
+			<td>CarName</td>
+			<td>ACTION</td>
+		</tr>
+
+	<% for(var i=0; i< carlist.length; i++){ %>
+		<tr>
+			<td><%= carlist[i].Id %></td>
+			<td><%= carlist[i].name %></td>
+			<td>
+				<a href="/user/edit/<%= carlist[i].Id %>"> EDIT </a> | 
+				<a href="/user/delete/<%= carlist[i].Id %>"> DELETE </a> | 
+				<a href="/user/details/<%= carlist[i].Id %>"> Details </a>
+			</td>
+		</tr>
+
+	<% } %>
+	</table>
+</body>
+</html>

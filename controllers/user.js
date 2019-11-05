@@ -1,5 +1,7 @@
 var express = require('express');
 var userModel = require('./../models/user-model');
+var CatagoryModel = require('./../models/catagory-model');
+var CarlistModel=require('./../models/Carlist-model')
 var router = express.Router();
 
 router.get('*', function(req, res, next){
@@ -22,6 +24,23 @@ router.get('/userlist', function(req, res){
 		});
 });
 
+router.get('/Catagorylist', function(req, res){//link
+
+		CatagoryModel.getAll(function(results){
+			
+			res.render('user/Catagory', {Catagory: results});//view name
+
+		});
+});
+
+router.get('/carlist', function(req, res){//link
+
+		CarlistModel.getAll(function(results){
+			
+			res.render('user/carlist', {carlist: results});//view name
+
+		});
+});
 
 router.get('/adduser', function(req, res){
 	res.render('user/adduser');
